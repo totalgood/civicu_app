@@ -10,8 +10,8 @@ __license__ = "mit"
 
 
 def test_recognize_greeting():
-    assert recognize_greeting('Hi') == True
-    assert recognize_greeting('Yo') == False
-    assert recognize_greeting('') == False
+    assert recognize_greeting('Hi') is True
+    assert recognize_greeting('Yo') is False
+    assert recognize_greeting('') is False
     # with pytest.raises(AssertionError):
     #     fib(-10)
