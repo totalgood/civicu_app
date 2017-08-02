@@ -21,8 +21,9 @@ from __future__ import division, print_function, absolute_import
 import argparse
 import sys
 import logging
+import os
 
-from civicu_app import __version__
+from civicu_app import __version__  # noqa
 
 __author__ = "Hobson Lane"
 __copyright__ = "Hobson Lane"
@@ -30,6 +31,39 @@ __license__ = "mit"
 
 _logger = logging.getLogger(__name__)
 
+WALLPAPER_PATH = os.path.join(os.path.expand_user('~'), 'Pictures', 'wallpaper')
+
+
+def change_wallpaper(new_path=WALLPAPER_PATH, wallpaper_path=WALLPAPER_PATH, backup=False):
+    new_path, wallpaper_path = os.abspath(new_path), os.abspath(wallpaper_path)
+    with open(new_path, 'rb') as fin:
+        newimage = fin.read()
+    if new_path != wallpaper_path:
+        with open(wallpaper_path, 'rb') as fin:
+            oldimage = fin.read()
+        if newimage != oldimage:
+            with open(wallpaper_path) as fout:
+                fout.write(newimage)
+            return newimage
+    return None
+
+
+def recognize_greeting(statement):
+    """Recognizes if string statement starts with Hi or Hey or any other greeting.
+
+    Args:
+      statement (str): a string from the commandline from the user
+
+    Returns:
+      bool: True if statement is a greeting. False otherwise.
+
+    >>> recognize_greeting('hi')
+    True
+    """
+    statement = statement.lower()
+    if statement.startswith('hi') or statement.startswith('hey'):
+        return True
+    return False
 
 def recognize_greeting(statement):
     """Recognizes if string statement starts with Hi or Hey or any other greeting.
