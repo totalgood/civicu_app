@@ -43,3 +43,5 @@ MANIFEST
 
 #
 .ipynb_checkpoints/
+*.sqlite3
+

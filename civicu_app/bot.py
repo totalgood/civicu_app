@@ -31,11 +31,11 @@ __license__ = "mit"
 
 _logger = logging.getLogger(__name__)
 
-WALLPAPER_PATH = os.path.join(os.path.expand_user('~'), 'Pictures', 'wallpaper')
+WALLPAPER_PATH = os.path.join(os.path.expanduser('~'), 'Pictures', 'wallpaper')
 
 
 def change_wallpaper(new_path=WALLPAPER_PATH, wallpaper_path=WALLPAPER_PATH, backup=False):
-    new_path, wallpaper_path = os.abspath(new_path), os.abspath(wallpaper_path)
+    new_path, wallpaper_path = os.path.abspath(new_path), os.path.abspath(wallpaper_path)
     with open(new_path, 'rb') as fin:
         newimage = fin.read()
     if new_path != wallpaper_path:
@@ -45,7 +45,6 @@ def change_wallpaper(new_path=WALLPAPER_PATH, wallpaper_path=WALLPAPER_PATH, bac
             with open(wallpaper_path) as fout:
                 fout.write(newimage)
             return newimage
-    return None
 
 
 def recognize_greeting(statement):
