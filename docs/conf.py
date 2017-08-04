@@ -31,7 +31,7 @@ if on_rtd:
         inspect.getfile(inspect.currentframe())))
 
     output_dir = os.path.join(__location__, "../docs/api")
-    module_dir = os.path.join(__location__, "../civicu_app")
+    module_dir = os.path.join(__location__, "../labeler_site")
     cmd_line_template = "sphinx-apidoc -f -o {outputdir} {moduledir}"
     cmd_line = cmd_line_template.format(outputdir=output_dir, moduledir=module_dir)
     apidoc.main(cmd_line.split(" "))
@@ -61,7 +61,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'civicu_app'
+project = u'labeler_site'
 copyright = u'2017, Hobson Lane'
 
 # The version info for the project you're documenting, acts as replacement for
@@ -128,7 +128,7 @@ html_theme = 'alabaster'
 # The name for this set of Sphinx documents.  If None, it defaults to
 # "<project> v<release> documentation".
 try:
-    from civicu_app import __version__ as version
+    from labeler_site import __version__ as version
 except ImportError:
     pass
 else:
@@ -193,7 +193,7 @@ html_static_path = ['_static']
 # html_file_suffix = None
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'civicu_app-doc'
+htmlhelp_basename = 'labeler_site-doc'
 
 
 # -- Options for LaTeX output --------------------------------------------------
@@ -212,7 +212,7 @@ latex_elements = {
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title, author, documentclass [howto/manual]).
 latex_documents = [
-  ('index', 'user_guide.tex', u'civicu_app Documentation',
+  ('index', 'user_guide.tex', u'labeler_site Documentation',
    u'Hobson Lane', 'manual'),
 ]
 

@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 import pytest
-from civicu_app.bot import recognize_greeting
+from labeler_site.bot import recognize_greeting
 
 __author__ = "Hobson Lane"
 __copyright__ = "Hobson Lane"

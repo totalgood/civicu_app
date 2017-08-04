@@ -1,8 +1,8 @@
 ==========
-civicu_app
+labeler_site
 ==========
 
-This is the documentation of **civicu_app**.
+This is the documentation of **labeler_site**.
 
 .. note::
 

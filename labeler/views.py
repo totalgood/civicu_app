@@ -4,14 +4,14 @@ from django.shortcuts import render_to_response
 from django.template import RequestContext
 from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
-from civicu_app.labeler.models import Image
-from civicu_app.labeler.forms import ImageForm
+from labeler_site.labeler.models import Image
+from labeler_site.labeler.forms import ImageForm
 
 
 def list(request):
     # Handle imagefile upload
     if request.method == 'POST':
-        form = DocumentForm(request.POST, request.FILES)
+        form = ImageForm(request.POST, request.FILES)
         if form.is_valid():
             newimage = Image(file=request.FILES['imagefile'])
             newimage.save()

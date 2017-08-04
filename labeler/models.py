@@ -1,8 +1,14 @@
 """ Profile model with first and last name an image or profile description
-    Label model with image ID and classification and user id
-    Image model with image ID and path to the image on a shared server or a binary blob of the image itself
+
+Models:
+  Label model with image ID and classification and user id
+  Image model with image ID and path to the image on a shared server or a binary blob of the image itself
+
+References:
+  [Django tutorial part 1](https://docs.djangoproject.com/en/1.11/intro/tutorial01/)
+  [Django tutorial part 2](https://docs.djangoproject.com/en/1.11/intro/tutorial02/)
+  [Pattern for uploading files](http://www.bogotobogo.com/python/Django/Python_Django_Image_Files_Uploading_Example.php)
 """
-import os
 from django.db import models
 
 from django.contrib.auth.models import User

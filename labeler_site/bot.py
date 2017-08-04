@@ -23,7 +23,7 @@ import sys
 import logging
 import os
 
-from civicu_app import __version__  # noqa
+from labeler_site import __version__  # noqa
 
 __author__ = "Hobson Lane"
 __copyright__ = "Hobson Lane"
@@ -42,7 +42,7 @@ def change_wallpaper(new_path=WALLPAPER_PATH, wallpaper_path=WALLPAPER_PATH, bac
         with open(wallpaper_path, 'rb') as fin:
             oldimage = fin.read()
         if newimage != oldimage:
-            with open(wallpaper_path) as fout:
+            with open(wallpaper_path, 'wb') as fout:
                 fout.write(newimage)
             return newimage
 
@@ -96,7 +96,7 @@ def parse_args(args):
     # parser.add_argument(
     #     '--version',
     #     action='version',
-    #     version='civicu_app {ver}'.format(ver=__version__))
+    #     version='labeler_site {ver}'.format(ver=__version__))
     # # parser.add_argument(
     # #     dest="n",
     # #     help="n-th Fibonacci number",
