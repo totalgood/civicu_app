@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <ul>
+    <li>
+      <a href="{% url 'form_file_upload' %}">Model Form Upload</a>
+    </li>
+  </ul>
+
+  <p>Uploaded files:</p>
+  <ul>
+    {% for obj in images %}
+      <li>
+        <a href="{{ obj.file.url }}">{{ obj.file.name }}</a>
+        <small>(Uploaded at: {{ obj.uploaded_date }})</small>
+      </li>
+    {% endfor %}
+  </ul>
+{% endblock %}

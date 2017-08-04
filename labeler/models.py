@@ -14,13 +14,21 @@ from django.db import models
 from django.contrib.auth.models import User
 
 
+def user_images_directory(obj, filename):
+    # file will be uploaded to MEDIA_ROOT/user_<id>/<filename>
+    return 'images/uid_{0}/{1}'.format(obj.uploaded_by.id, filename)
+
+
 class Image(models.Model):
     filepath = models.CharField("Path relative to BASE_PATH for the image file",
                                 max_length=512)
     caption = models.CharField("Description of the image, where and when it was taken",
                                max_length=512)
-    created_date = models.DateTimeField('Date photo was taken.')
-    file = models.FileField(upload_to='.')
+    taken_date = models.DateTimeField('Date photo was taken.', null=True, default=None)
+    updated_date = models.DateTimeField('Date photo was changed.', auto_now=True)
+    created_date = models.DateTimeField('Date photo was uploaded.', auto_now_add=True)
+    uploaded_by = models.ForeignKey(User)
+    file = models.FileField(upload_to=user_images_directory)
 
 
 class UserLabel(models.Model):

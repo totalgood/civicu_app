@@ -41,7 +41,8 @@ docs/_build/*
 cover/*
 MANIFEST
 
-#
+# django shell and ipython console
 .ipynb_checkpoints/
 *.sqlite3
+user_uploads
 
