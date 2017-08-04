@@ -2,8 +2,6 @@
 import os
 import sys
 
-from pugnlp.futils import find_files
-
 
 if __name__ == "__main__":
     os.environ.setdefault("DJANGO_SETTINGS_MODULE", "labeler_site.settings")
@@ -23,10 +21,15 @@ if __name__ == "__main__":
             )
         raise
 
-    # delete all `.pyc` files
-    from django.conf import settings
-    for ff in find_files(settings.BASE_DIR, '.pyc'):
-        if ff['path'].endswith('.pyc'):  # double check that find_files is correct about file extension
-            os.remove(ff['path'])
+    try:
+        from django.conf import settings
+        from pugnlp.futil import find_files
+
+        # delete all `.pyc` files
+        for ff in find_files(settings.BASE_DIR, '.pyc'):
+            if ff['path'].endswith('.pyc'):  # double check that find_files is correct about file extension
+                os.remove(ff['path'])
+    except ImportError:
+        print("WARN: unable to delete all pyc files until you install pugnlp.")
 
     execute_from_command_line(sys.argv)
