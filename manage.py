@@ -22,4 +22,11 @@ if __name__ == "__main__":
                 "forget to activate a virtual environment?"
             )
         raise
+
+    # delete all `.pyc` files
+    from django.conf import settings
+    for ff in find_files(settings.BASE_DIR, '.pyc'):
+        if ff['path'].endswith('.pyc'):  # double check that find_files is correct about file extension
+            os.remove(ff['path'])
+
     execute_from_command_line(sys.argv)
