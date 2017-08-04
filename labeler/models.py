@@ -15,7 +15,7 @@ from django.contrib.auth.models import User
 
 
 def user_images_directory(instance, filename):
-    """ Prepend a directory path to uploaded filenames to prevent multiple files being uploaded with the same name 
+    """ Prepend a directory path to uploaded filenames to prevent multiple files being uploaded with the same name
 
     If the same user uploads thes same filename twice the original file is overwritten.
     The FileField object places all uploaded files in MEDIA_ROOT/uid_<uid>/<filename>
@@ -28,20 +28,22 @@ def user_images_directory(instance, filename):
 class Image(models.Model):
     """ A database record for uploaded images to be labeled """
     caption = models.CharField("Description of the image, where and when it was taken",
-                               max_length=512, default=None, null=True)
+                               max_length=512, default=None, null=True)  # , required=False)
     # taken_date = models.DateTimeField('Date photo was taken.', null=True, default=None)
     # updated_date = models.DateTimeField('Date photo was changed.', auto_now=True)
     # created_date = models.DateTimeField('Date photo was uploaded.', auto_now_add=True)
-    uploaded_by = models.ForeignKey(User, default=None, null=True)
-    file = models.FileField("Select file to upload", upload_to=user_images_directory)
+    uploaded_by = models.ForeignKey(User, default=None, null=True)  # , required=False)
+    file = models.FileField("Select file to upload", upload_to='images')
 
 
 class UserLabel(models.Model):
-    # question = models.ForeignKey(Question, on_delete=models.CASCADE)
+    """ Individual user labels (their filled out ballot, voting for a label for an image) """
     name = models.CharField(max_length=128)
     user = models.ForeignKey(User, default=None, null=True)
 
 
 class TotalVotes(models.Model):
+    """ Aggregated votes (by all users, who are allowed to vote multiple times) for an individual Image """
+    image = models.ForeignKey(Image, default=None, null=True)
     name = models.CharField(max_length=128)
     votes = models.IntegerField(default=0)

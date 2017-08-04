@@ -47,10 +47,3 @@ def form_file_upload(request):
 def index(request):
     images = Image.objects.all()
     return render(request, 'labeler/index.html', {'images': images})
-    # return HttpResponse("This the index of images in the Labeler App.")
-
-
-def home(request):
-    images = Image.objects.all()
-    return render(request, 'labeler/index.html', {'images': images})
-    # return HttpResponse("This the home page of the Wolf Labeler App.")
