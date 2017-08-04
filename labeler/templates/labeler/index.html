@@ -1,19 +1,16 @@
 {% extends 'base.html' %}
 
 {% block content %}
-  <ul>
-    <li>
-      <a href="{% url 'form_file_upload' %}">Model Form Upload</a>
-    </li>
-  </ul>
-
-  <p>Uploaded files:</p>
-  <ul>
-    {% for obj in images %}
-      <li>
-        <a href="{{ obj.file.url }}">{{ obj.file.name }}</a>
-        <small>(Uploaded at: {{ obj.uploaded_date }})</small>
-      </li>
+  <h3>Images</h3>
+  <table>
+    <tr><th>Filename</th><th>Uploaded</th></tr>
+    {% for img in images %}
+        <tr>
+          <td><a href="{{ obj.file.url }}">{{ img.file.name }}</a></td>
+          <td><small>{{ img.uploaded_date }}</small></td>
+        </tr>
     {% endfor %}
-  </ul>
+  </table>
+  <h3><a href="{% url 'form_file_upload' %}">Upload an image...</a></h3>
+
 {% endblock %}

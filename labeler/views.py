@@ -1,35 +1,34 @@
-from django.http import HttpResponse
-from django.shortcuts import render_to_response, render, redirect
-from django.template import RequestContext
-from django.http import HttpResponseRedirect
-from django.core.urlresolvers import reverse
+from django.shortcuts import render, redirect
+# from django.template import RequestContext
+# from django.http import HttpResponseRedirect
+# from django.core.urlresolvers import reverse
 
 from .models import Image
-from .forms import ImageUploadForm, FileUploadForm
+from .forms import FileUploadForm
 
 
-def list(request):
-    """List of images already uploaded, and a way to upload a new one"""
-    # Handle imagefile upload
-    if request.method == 'POST':
-        form = ImageUploadForm(request.POST, request.FILES)
-        if form.is_valid():
-            newimage = Image(file=request.FILES['imagefile'])
-            newimage.save()
-            # Redirect to the document list after POST
-            return HttpResponseRedirect(reverse('myproject.myapp.views.list'))
-    else:
-        form = ImageUploadForm()  # An empty, unbound form
+# def file_listing(request):
+#     """List of images already uploaded, and a way to upload a new one"""
+#     # Handle imagefile upload
+#     if request.method == 'POST':
+#         form = ImageUploadForm(request.POST, request.FILES)
+#         if form.is_valid():
+#             newimage = Image(path=request.FILES['imagefile'])
+#             newimage.save()
+#             # Redirect to the document list after POST
+#             return HttpResponseRedirect(reverse('myproject.myapp.views.list'))
+#     else:
+#         form = ImageUploadForm()  # An empty, unbound form
 
-    # Load images for the list page
-    images = Image.objects.all()  # noqa
+#     # Load images for the list page
+#     images = Image.objects.all()  # noqa
 
-    # Render list page with the images and the form
-    return render_to_response(
-        'labeler/list.html',
-        {'images': images, 'form': form},
-        context_instance=RequestContext(request)
-    )
+#     # Render list page with the images and the form
+#     return render_to_response(
+#         'labeler/file_list.html',
+#         {'images': images, 'form': form},
+#         context_instance=RequestContext(request)
+#     )
 
 
 def form_file_upload(request):
