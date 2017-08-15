@@ -91,31 +91,30 @@ def parse_args(args):
     Returns:
       :obj:`argparse.Namespace`: command line parameters namespace
     """
-    return None, args
     parser = argparse.ArgumentParser()  # description="Just a greeting recognizer.")
-    # parser.add_argument(
-    #     '--version',
-    #     action='version',
-    #     version='labeler_site {ver}'.format(ver=__version__))
-    # # parser.add_argument(
-    # #     dest="n",
-    # #     help="n-th Fibonacci number",
-    # #     type=int,
-    # #     metavar="INT")
-    # parser.add_argument(
-    #     '-v',
-    #     '--verbose',
-    #     dest="loglevel",
-    #     help="set loglevel to INFO",
-    #     action='store_const',
-    #     const=logging.INFO)
-    # parser.add_argument(
-    #     '-vv',
-    #     '--very-verbose',
-    #     dest="loglevel",
-    #     help="set loglevel to DEBUG",
-    #     action='store_const',
-    #     const=logging.DEBUG)
+    parser.add_argument(
+        '--version',
+        action='version',
+        version='labeler_site {ver}'.format(ver=__version__))
+    parser.add_argument(
+        '--upload',
+        dest="upload",
+        help="Path to image file for upload to labler API",
+        type=str)
+    parser.add_argument(
+        '-v',
+        '--verbose',
+        dest="loglevel",
+        help="set loglevel to INFO",
+        action='store_const',
+        const=logging.INFO)
+    parser.add_argument(
+        '-vv',
+        '--very-verbose',
+        dest="loglevel",
+        help="set loglevel to DEBUG",
+        action='store_const',
+        const=logging.DEBUG)
     return parser.parse_known_args(args)
 
 
@@ -165,7 +164,13 @@ def main(args):
     # setup_logging(args.loglevel)
     # _logger.debug("Starting crazy calculations...")
     print("{}".format(recognize_greeting(' '.join(unknown))))
+    if args.upload:
+        upload(args.upload)
     # _logger.info("Script ends here")
+
+
+def upload(filepath):
+    # POST request to your API with "files" key in requests data dict
 
 
 def run():
