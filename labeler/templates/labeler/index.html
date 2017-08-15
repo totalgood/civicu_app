@@ -6,7 +6,7 @@
     <tr><th>Filename</th><th>Uploaded</th></tr>
     {% for img in images %}
         <tr>
-          <td><a href="{{ obj.file.url }}">{{ img.file.name }}</a></td>
+          <td><a href="{{ img.file.url }}">{{ img.file.name }}</a></td>
           <td><small>{{ img.uploaded_date }}</small></td>
         </tr>
     {% endfor %}

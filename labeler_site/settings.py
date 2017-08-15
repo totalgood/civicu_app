@@ -25,18 +25,22 @@ SECRET_KEY = 'g--m2luoixmkuf5r2p-qtrs-fp9zsog-oj^5tis59fa!fdu=kk'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', '.ngrok.io', '.totalgood.org', '.totalgood.com']
 
 
 INSTALLED_APPS = [
     'labeler.apps.LabelerAppConfig',
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
     'django_extensions',
+    'rest_framework',
+
 ]
 
 MIDDLEWARE = [

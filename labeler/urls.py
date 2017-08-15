@@ -7,7 +7,10 @@ from . import views
 
 urlpatterns = [
     url(r'^$', views.index, name='index'),
+    # class-based REST API view ov images
+    url(r'^api/images/$', views.ListImages.as_view()),
     url(r'^upload/$', views.form_file_upload, name='form_file_upload'),
+    url(r'^api/$', views.ListImages.as_view(), name='image_list'),
 ]
 
 

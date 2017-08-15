@@ -10,8 +10,9 @@ from django.conf.urls.static import static
 
 
 urlpatterns = [
-    url(r'^labeler/', include('labeler.urls')),
     url(r'^admin/', admin.site.urls),
+    url(r'^', include('labeler.urls')),
+    # url(r'^', include('example_app.urls', namespace='example_app')),
 ]
 
 
