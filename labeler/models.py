@@ -29,9 +29,9 @@ class Image(models.Model):
     """ A database record for uploaded images to be labeled """
     caption = models.CharField("Description of the image, where and when it was taken",
                                max_length=512, default=None, null=True)  # , required=False)
-    # taken_date = models.DateTimeField('Date photo was taken.', null=True, default=None)
-    # updated_date = models.DateTimeField('Date photo was changed.', auto_now=True)
-    # created_date = models.DateTimeField('Date photo was uploaded.', auto_now_add=True)
+    taken_date = models.DateTimeField('Date photo was taken.', null=True, default=None)
+    updated_date = models.DateTimeField('Date photo was changed.', auto_now=True)
+    created_date = models.DateTimeField('Date photo was uploaded.', auto_now_add=True)
     uploaded_by = models.ForeignKey(User, default=None, null=True)  # , required=False)
     file = models.FileField("Select file to upload", upload_to='images')
 

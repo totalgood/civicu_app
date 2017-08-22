@@ -65,7 +65,8 @@ def recognize_greeting(statement):
         return True
     return False
 
-def recognize_greeting(statement):
+
+def is_greeting(statement):
     """Recognizes if string statement starts with Hi or Hey or any other greeting.
 
     Args:
@@ -174,12 +175,13 @@ def main(args):
 def upload(filepath):
     # POST request to your API with "files" key in requests data dict
 
-    base_dir = os.path.join(os.getenv('HOME'), 'Pictures')
+    # base_dir = os.path.join(os.getenv('HOME'), 'Pictures')
+    base_dir = os.path.expanduser(os.path.dirname(filepath))
     url = 'http://localhost:8000/api/'
-    filename = 'barlow-rd-2014-a-095_30343888245_o.jpg'
-    with open(os.path.join(base_dir, 'bear', filename), 'rb') as fin:
+    filename = os.path.basename(filepath)
+    with open(os.path.join(base_dir, filename), 'rb') as fin:
         print(fin.name)
-        POST_data = {'caption': 'posted bear'}
+        POST_data = {'caption': 'bot upload'}
         files = {'file': (filename, fin),
                  'file_name': filename}
         resp = requests.post(url, data=POST_data, files=files)
@@ -193,4 +195,6 @@ def run():
 
 
 if __name__ == "__main__":
+    print('sys.args:')
+    print(sys.args)
     run()

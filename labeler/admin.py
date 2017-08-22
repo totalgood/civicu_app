@@ -3,7 +3,15 @@ from django.contrib import admin
 from .models import Image, UserLabel
 
 
-admin.site.register(Image)
+class ImageAdmin(admin.ModelAdmin):
+    date_hierarchy = ('taken_date',)
+    list_display = ('taken_date', 'created_date', 'file', 'caption', 'uploaded_by')
+
+
+admin.site.register(Image, ImageAdmin)
+
+
+# admin.site.register(Image)
 admin.site.register(UserLabel)
 
 
