@@ -1,3 +1,12 @@
+"""
+- Home page (list of images in our DB?)
+- Image "details" page, a form for viewing, changing, or uploading an Image
+- Image upload page
+- A way to label an image
+- Display the aggregate (sum) of the label "votes" for an image
+- List the individual votes for an Image 
+"""
+
 from django.shortcuts import render, redirect
 
 from rest_framework.decorators import api_view
