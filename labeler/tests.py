@@ -19,7 +19,7 @@ class ImageModelTest(TestCase):
     def create_image(self, caption=caption):
         return Image.objects.create(caption=caption,
                                     taken_date=timezone.now() - datetime.timedelta(365.25 * 2.5),
-                                    file=open(os.path.join(MEDIA_ROOT, 'test_image.jpg', 'rb')),
+                                    file=open(os.path.join(MEDIA_ROOT, 'images', 'test_image.jpg'), 'rb'),
                                     uploaded_date=timezone.now(),
                                     created_date=timezone.now())
 
