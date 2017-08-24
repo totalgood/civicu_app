@@ -4,3 +4,5 @@
 pytest-cov
 pytest
 coverage
+codecov
+doctest2
