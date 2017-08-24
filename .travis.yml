@@ -23,11 +23,11 @@ install:
   - pip install --upgrade pip
   - pip install -r requirements.txt
 before_script:
-  - git config --global user.email "you@example.com"
-  - git config --global user.name "Your Name"
+  - git config --global user.email "travis.github@totalgood.com"
+  - git config --global user.name "Travis Testing for Total Good civicu_app"
 script:
   - python manage.py test
-  # - python setup.py test
+  - python setup.py test
 after_success:
   - if [[ "$COVERAGE" == "true" ]]; then coveralls || echo "failed"; fi
 cache:
