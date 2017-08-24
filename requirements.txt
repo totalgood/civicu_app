@@ -3,6 +3,7 @@ django-extensions==1.8.1
 djangorestframework==3.6.3
 doctest2==0.1
 gunicorn
+requests
 # pillow
 # tensorflow
 # keras
