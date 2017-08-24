@@ -32,7 +32,7 @@ class Image(models.Model):
                                max_length=512, default=None, null=True)  # , required=False)
     taken_date = models.DateTimeField('Date photo was taken.', null=True, default=None)
     updated_date = models.DateTimeField('Date photo was changed.', auto_now=True)
-    created_date = models.DateTimeField('Date photo was uploaded.', auto_now_add=True)
+    created_date = models.DateTimeField('Date photo was created.', auto_now_add=True)
     uploaded_by = models.ForeignKey(User, default=None, null=True)  # , required=False)
     file = models.FileField("Image to be labeled", upload_to='images')
 
