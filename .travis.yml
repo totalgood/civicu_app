@@ -11,7 +11,7 @@ env:
     # - DISTRIB="ubuntu" PYTHON_VERSION="2.7" COVERAGE="true"
     # - DISTRIB="conda" PYTHON_VERSION="2.7" COVERAGE="false"
     # - DISTRIB="conda" PYTHON_VERSION="3.3" COVERAGE="false"
-    - DISTRIB="conda" PYTHON_VERSION="3.5" COVERAGE="false"
+    # - DISTRIB="conda" PYTHON_VERSION="3.5" COVERAGE="false"
     - DISTRIB="ubuntu" PYTHON_VERSION="3.5" COVERAGE="false"
 addons:
   apt:
@@ -19,7 +19,7 @@ addons:
       - git
       - python-pip
 install:
-  - source tests/travis_install.sh
+  # - source tests/travis_install.sh
   - pip install --upgrade pip
   - pip install -r requirements.txt
 before_script:
