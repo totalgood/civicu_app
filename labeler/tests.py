@@ -5,9 +5,11 @@ from django.test import TestCase
 from django.utils import timezone
 # from django.core.urlresolvers import reverse
 
-from settings import MEDIA_ROOT
+import labeler_site.settings
 from .models import Image
 # from .forms import FileUploadForm
+
+MEDIA_ROOT = labeler_site.settings.MEDIA_ROOT
 
 
 class ImageModelTest(TestCase):

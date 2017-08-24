@@ -14,15 +14,16 @@ from django.db import models
 from django.contrib.auth.models import User
 
 
-# def user_images_directory(instance, filename):
-#     """ Prepend a directory path to uploaded filenames to prevent multiple files being uploaded with the same name
+# FIXME: Unused but don't comment it out because migrations use it
+def user_images_directory(instance, filename):
+    """ Prepend a directory path to uploaded filenames to prevent multiple files being uploaded with the same name
 
-#     If the same user uploads thes same filename twice the original file is overwritten.
-#     The FileField object places all uploaded files in MEDIA_ROOT/uid_<uid>/<filename>
-#     """
-#     return 'images/uid_{uid}/{filename}'.format(
-#         uid=getattr(instance.uploaded_by, 'id', 0),
-#         filename=filename)
+    If the same user uploads thes same filename twice the original file is overwritten.
+    The FileField object places all uploaded files in MEDIA_ROOT/uid_<uid>/<filename>
+    """
+    return 'images/uid_{uid}/{filename}'.format(
+        uid=getattr(instance.uploaded_by, 'id', 0),
+        filename=filename)
 
 
 class Image(models.Model):
