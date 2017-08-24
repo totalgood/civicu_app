@@ -1,0 +1,194 @@
+[
+{
+  "model": "labeler.image",
+  "pk": 2,
+  "fields": {
+    "caption": null,
+    "taken_date": null,
+    "updated_date": "2017-08-22T00:33:22.713Z",
+    "created_date": "2017-08-22T00:33:22.688Z",
+    "uploaded_by": null,
+    "file": "images/uid_0/3.png"
+  }
+},
+{
+  "model": "labeler.image",
+  "pk": 3,
+  "fields": {
+    "caption": null,
+    "taken_date": null,
+    "updated_date": "2017-08-22T00:33:22.713Z",
+    "created_date": "2017-08-22T00:33:22.688Z",
+    "uploaded_by": null,
+    "file": "images/uid_0/3_LpA1nzq.png"
+  }
+},
+{
+  "model": "labeler.image",
+  "pk": 4,
+  "fields": {
+    "caption": null,
+    "taken_date": null,
+    "updated_date": "2017-08-22T00:33:22.713Z",
+    "created_date": "2017-08-22T00:33:22.688Z",
+    "uploaded_by": null,
+    "file": "images/HUNT1306.jpg"
+  }
+},
+{
+  "model": "labeler.image",
+  "pk": 5,
+  "fields": {
+    "caption": "unknown canine",
+    "taken_date": null,
+    "updated_date": "2017-08-22T00:33:22.713Z",
+    "created_date": "2017-08-22T00:33:22.688Z",
+    "uploaded_by": null,
+    "file": "images/HUNT0726.jpg"
+  }
+},
+{
+  "model": "labeler.image",
+  "pk": 6,
+  "fields": {
+    "caption": "unknown canine",
+    "taken_date": null,
+    "updated_date": "2017-08-22T00:33:22.713Z",
+    "created_date": "2017-08-22T00:33:22.688Z",
+    "uploaded_by": null,
+    "file": "images/HUNT0133.jpg"
+  }
+},
+{
+  "model": "labeler.image",
+  "pk": 7,
+  "fields": {
+    "caption": "posted bear",
+    "taken_date": null,
+    "updated_date": "2017-08-22T00:33:22.713Z",
+    "created_date": "2017-08-22T00:33:22.688Z",
+    "uploaded_by": null,
+    "file": "images/barlow-rd-2014-a-095_30343888245_o.jpg"
+  }
+},
+{
+  "model": "labeler.image",
+  "pk": 8,
+  "fields": {
+    "caption": "automatic upload of local path /home/hobs/Pictures/force-directed-brain-hemispheres.png",
+    "taken_date": null,
+    "updated_date": "2017-08-22T00:33:22.713Z",
+    "created_date": "2017-08-22T00:33:22.688Z",
+    "uploaded_by": null,
+    "file": "images/force-directed-brain-hemispheres.png"
+  }
+},
+{
+  "model": "labeler.image",
+  "pk": 9,
+  "fields": {
+    "caption": "automatic upload of local path /home/hobs/Pictures/coyote/bear-springs-2014-5-r-273_30228286282_o.jpg",
+    "taken_date": null,
+    "updated_date": "2017-08-22T00:33:22.713Z",
+    "created_date": "2017-08-22T00:33:22.688Z",
+    "uploaded_by": null,
+    "file": "images/bear-springs-2014-5-r-273_30228286282_o.jpg"
+  }
+},
+{
+  "model": "labeler.image",
+  "pk": 10,
+  "fields": {
+    "caption": "automatic upload of local path /home/hobs/Pictures/cougar/yocum-high-2014-b-113_30309333896_o.jpg",
+    "taken_date": null,
+    "updated_date": "2017-08-22T00:33:22.713Z",
+    "created_date": "2017-08-22T00:33:22.688Z",
+    "uploaded_by": null,
+    "file": "images/yocum-high-2014-b-113_30309333896_o.jpg"
+  }
+},
+{
+  "model": "labeler.image",
+  "pk": 11,
+  "fields": {
+    "caption": "automatic upload of local path /home/hobs/Pictures/birds/barlow-1-2015-6-d-234_30258063911_o.jpg",
+    "taken_date": null,
+    "updated_date": "2017-08-22T00:33:22.713Z",
+    "created_date": "2017-08-22T00:33:22.688Z",
+    "uploaded_by": null,
+    "file": "images/barlow-1-2015-6-d-234_30258063911_o.jpg"
+  }
+},
+{
+  "model": "labeler.image",
+  "pk": 12,
+  "fields": {
+    "caption": "automatic upload of local path /home/hobs/Pictures/bobcat/salmon-huck-s-2011-093_30258296161_o.jpg",
+    "taken_date": null,
+    "updated_date": "2017-08-22T00:33:22.713Z",
+    "created_date": "2017-08-22T00:33:22.688Z",
+    "uploaded_by": null,
+    "file": "images/salmon-huck-s-2011-093_30258296161_o.jpg"
+  }
+},
+{
+  "model": "labeler.image",
+  "pk": 13,
+  "fields": {
+    "caption": "automatic upload of local path /home/hobs/Pictures/bear/clear-lake-s-2014-b-055_30257958261_o.jpg",
+    "taken_date": null,
+    "updated_date": "2017-08-22T00:33:22.713Z",
+    "created_date": "2017-08-22T00:33:22.688Z",
+    "uploaded_by": null,
+    "file": "images/clear-lake-s-2014-b-055_30257958261_o.jpg"
+  }
+},
+{
+  "model": "labeler.image",
+  "pk": 14,
+  "fields": {
+    "caption": "automatic upload of local path /home/hobs/Pictures/deer/mccubbins-gultch-2012-181_29713425063_o.jpg",
+    "taken_date": null,
+    "updated_date": "2017-08-22T00:33:22.713Z",
+    "created_date": "2017-08-22T00:33:22.688Z",
+    "uploaded_by": null,
+    "file": "images/mccubbins-gultch-2012-181_29713425063_o.jpg"
+  }
+},
+{
+  "model": "labeler.image",
+  "pk": 15,
+  "fields": {
+    "caption": "automatic upload of local path /home/hobs/Pictures/elk/indian-henry-rd-spur-190-2010-933_30047997250_o.jpg",
+    "taken_date": null,
+    "updated_date": "2017-08-22T00:33:22.713Z",
+    "created_date": "2017-08-22T00:33:22.688Z",
+    "uploaded_by": null,
+    "file": "images/indian-henry-rd-spur-190-2010-933_30047997250_o.jpg"
+  }
+},
+{
+  "model": "labeler.image",
+  "pk": 16,
+  "fields": {
+    "caption": "posted bear",
+    "taken_date": null,
+    "updated_date": "2017-08-22T00:33:22.713Z",
+    "created_date": "2017-08-22T00:33:22.688Z",
+    "uploaded_by": null,
+    "file": "images/barlow-rd-2014-a-095_30343888245_o_MumojCX.jpg"
+  }
+},
+{
+  "model": "labeler.image",
+  "pk": 17,
+  "fields": {
+    "caption": "bot upload",
+    "taken_date": null,
+    "updated_date": "2017-08-22T00:33:22.713Z",
+    "created_date": "2017-08-22T00:33:22.688Z",
+    "uploaded_by": null,
+    "file": "images/hazel-hollow-2014-a-113_30227526242_o.jpg"
+  }
+}
+]
