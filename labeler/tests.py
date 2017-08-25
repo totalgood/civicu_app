@@ -37,6 +37,7 @@ class ImageModelTest(TestCase):
 
 
 class BotTest(TestCase):
+    """Run doctests for the bot module"""
 
     def test_doctests(self):
         results = doctest.testmod(bot)
