@@ -75,7 +75,7 @@ def is_greeting(statement):
     Returns:
       bool: True if statement is a greeting. False otherwise.
 
-    >>> recognize_greeting('hi')
+    >>> is_greeting('hi')
     True
     """
     statement = statement.lower()

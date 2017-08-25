@@ -7,6 +7,11 @@ from django.utils import timezone
 
 import labeler_site.settings
 from .models import Image
+
+import doctest
+from labeler_site import bot
+
+
 # from .forms import FileUploadForm
 
 MEDIA_ROOT = labeler_site.settings.MEDIA_ROOT
@@ -29,3 +34,10 @@ class ImageModelTest(TestCase):
         self.assertTrue(isinstance(image, Image))
         # self.assertEqual(image.__unicode__(), image.caption)
         self.assertEqual(self.caption, image.caption)
+
+
+class BotTest(TestCase):
+
+    def test_doctests(self):
+        results = doctest.testmod(bot)
+        self.assertEqual(results.failed, 0)
