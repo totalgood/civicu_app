@@ -10,7 +10,8 @@ References:
   [Pattern for uploading files](http://www.bogotobogo.com/python/Django/Python_Django_Image_Files_Uploading_Example.php)
 """
 from django.db import models
-
+import jsonfield
+# from django.contrib.postgres.fields import JSONField  # only for PostGRESQL (psycopg2 backend)!
 from django.contrib.auth.models import User
 
 
@@ -35,6 +36,7 @@ class Image(models.Model):
     created_date = models.DateTimeField('Date photo was created.', auto_now_add=True)
     uploaded_by = models.ForeignKey(User, default=None, null=True)  # , required=False)
     file = models.FileField("Image to be labeled", upload_to='images')
+    info = jsonfield.JSONField("Metadata about the image (usually from the EXIF header)", null=True)
 
 
 class UserLabel(models.Model):

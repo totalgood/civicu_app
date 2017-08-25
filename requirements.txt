@@ -4,6 +4,7 @@ djangorestframework==3.6.3
 doctest2==0.1
 gunicorn
 requests
+jsonfield
 # pillow
 # tensorflow
 # keras
