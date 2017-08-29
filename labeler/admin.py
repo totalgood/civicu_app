@@ -5,7 +5,7 @@ from .models import Image, UserLabel
 
 class ImageAdmin(admin.ModelAdmin):
     date_hierarchy = 'taken_date'
-    list_display = ('taken_date', 'created_date', 'file', 'description', 'uploaded_by')
+    list_display = ('taken_date', 'created_date', 'file', 'caption', 'uploaded_by', 'label_set')
 
 
 admin.site.register(Image, ImageAdmin)

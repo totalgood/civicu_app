@@ -46,6 +46,8 @@ class UserLabel(models.Model):
 
 class Image(models.Model):
     """ A database record for images to be labeled """
+    caption = models.CharField("Description of the image, where and when it was taken, who/what is in it, etc",
+                               max_length=512, default='', blank=True)
     description = models.TextField("Description of the image, where and when it was taken, who/what is in it, etc",
                                    max_length=512, default='', blank=True)
     label = models.ManyToManyField(Label, through=UserLabel, null=True, blank=True)
