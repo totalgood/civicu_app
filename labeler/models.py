@@ -36,27 +36,28 @@ class Label(models.Model):
     created_date = models.DateTimeField('Datetime the label was created in the database.', auto_now_add=True)
 
 
-class UserLabel(models.Model):
-    """ Individual user labels (a filled out ballot that "votes" for a label associated with an image) """
-    label = models.ForeignKey(Label, default=None, null=True)
-    user = models.ForeignKey(User, default=None, null=True)
-    updated_date = models.DateTimeField('Datetime the label was assigned to the image.', auto_now=True)
-    created_date = models.DateTimeField('Datetime the label was assigned to the image.', auto_now_add=True)
-
-
 class Image(models.Model):
     """ A database record for images to be labeled """
     caption = models.CharField("Description of the image, where and when it was taken, who/what is in it, etc",
                                max_length=512, default='', blank=True)
     description = models.TextField("Description of the image, where and when it was taken, who/what is in it, etc",
                                    max_length=512, default='', blank=True)
-    label = models.ManyToManyField(Label, through=UserLabel, null=True, blank=True)
+    label = models.ManyToManyField(Label, through='ImageLabel', blank=True)
     taken_date = models.DateTimeField('Date photo was taken.', null=True, default=None, blank=True)
     updated_date = models.DateTimeField('Date photo was changed.', auto_now=True)
     created_date = models.DateTimeField('Date photo was created.', auto_now_add=True)
     uploaded_by = models.ForeignKey(User, default=None, null=True, blank=True)
     file = models.FileField("Image to be labeled", upload_to='images', blank=False)
     info = jsonfield.JSONField("Metadata about the image (usually from the EXIF header)", null=True, default=None, blank=True)
+
+
+class ImageLabel(models.Model):
+    """ Individual user labels (a filled out ballot that "votes" for a label associated with an image) """
+    label = models.ForeignKey(Label, default=None, null=True)
+    image = models.ForeignKey(Image, default=None, null=True)
+    user = models.ForeignKey(User, default=None, null=True)
+    updated_date = models.DateTimeField('Datetime the label was assigned to the image.', auto_now=True)
+    created_date = models.DateTimeField('Datetime the label was assigned to the image.', auto_now_add=True)
 
 
 class TotalVotes(models.Model):
