@@ -1,6 +1,6 @@
 import os
 import sys
-import json
+# import json
 
 import django
 from django.conf import settings  # noqa Django magic starts here
@@ -25,6 +25,7 @@ def get_exif(image_path=os.path.join(settings.BASE_DIR, 'labeler', 'data', 'SUNP
     """
     img = PIL.Image.open(image_path)
     exif_data = img._getexif()
+    exif_data = {} if exif_data is None else exif_data
     exif_data = dict(
         zip(
             # Bad idea because multiple keys coule be mapped to None destroying some data!
@@ -44,7 +45,7 @@ def get_exif(image_path=os.path.join(settings.BASE_DIR, 'labeler', 'data', 'SUNP
 
 
 def main(args):
-    return [get_exif(arg) for arg in args]
+    return {arg: get_exif(arg) for arg in args}
 
 
 def run():
