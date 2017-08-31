@@ -6,11 +6,26 @@ Gamify your bot training!
 
 ## Description
 
-Can you tell the difference between a coyote and a wolf? A mouse and a squirrel? At night? What about their tracks? Are you master tracker material? With this game you can find out, and help the Cascadia Wild citizen science program at the same time. The more images you and your friends label the more data we have about the ecosystem on Mt Hood and nearby forests.
+With this game you can find out if you have what it takes to be a carnivore tracker.
 
-Did OR-7 spend any time near Hood? Are there surviving Montagne Fox hiding in some seculeded ravine? Will Wolverarines ever return to Hood? As you upload your images or just help label our database you can improve our data while honing your skills.
+* Can you tell the difference between a coyote and a wolf?
+* A mouse and a squirrel?
+* At night?
+* What about their tracks?
+* Are you master tracker material?
 
-And if you can think of other applications for this software, or want to apply it to your own images, it has a REST API and is fully open science (open source and open data).
+And you'll be helping the Cascadia Wild citizen science program by playing our "reindeer games."
+The more images you and your friends label, the more data we have about the ecosystem on Mt Hood and nearby forests.
+
+Want to do more than just "play games", upload your own images of Mt Hood wildlife and tracks to answer questions like:
+
+* Did OR-7 spend time near Hood?
+* Are there surviving Montagne Fox hiding in some seculeded ravine?
+* Will Wolverines ever return to Hood?
+
+And if you can think of other applications for this software, go for it!
+You can upload your own images using the [REST API at `/api/images/`](http://localhost:8000/api/images/) or the janky [`/upload` page](http://localhost:8000/upload/).
+And since it's fully open science (open source and open data), you can retrieve our labeled images and do whatever you like with them, or modify our code to contribute your ideas.
 
 ## Installation
 
