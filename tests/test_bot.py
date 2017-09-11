@@ -14,5 +14,5 @@ def test_recognize_greeting():
     assert recognize_greeting('Hi') is True
     assert recognize_greeting('Yo') is False
     assert recognize_greeting('') is False
-    with pytest.raises(ValueError):
+    with pytest.raises(AttributeError):
         recognize_greeting(None)
