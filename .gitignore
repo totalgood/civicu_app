@@ -48,3 +48,7 @@ user_uploads
 
 # large data files
 *.mp4
+*.jpg
+*.jpeg
+*.zip
+
