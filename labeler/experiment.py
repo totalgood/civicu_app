@@ -49,6 +49,7 @@ from keras.layers import Conv2D, MaxPooling2D
 from keras.layers import Activation, Dropout, Flatten, Dense
 from keras import backend as K
 
+from matplotlib import pyplot as plt
 
 # dimensions of our images.
 img_width, img_height = 150, 150
@@ -60,23 +61,32 @@ else:
     input_shape = (img_width, img_height, 3)
 
 
-def build_model(n=32):
+def build_model(n=32, path=None):
     model = Sequential()
-    model.add(Conv2D(n, (3, 3), input_shape=input_shape))
+
+    # 1) input layer
+    model.add(Conv2D(n, (3, 3), input_shape=input_shape))  # model.layers[0].get_weights()[:].shape: [(3, 3, 3, 32), (32,)]
+    model.add(Activation('relu'))  # rectified linear unit
+    model.add(MaxPooling2D(pool_size=(2, 2)))  # factor by which to reduce each dimension, default stride=pool_size
+
+    # 2) second layer
+    model.add(Conv2D(n, (3, 3)))  # model.layers[6].get_weights()[:].shape == [(3, 3, 32, 32), (32,)]
     model.add(Activation('relu'))
     model.add(MaxPooling2D(pool_size=(2, 2)))
 
-    model.add(Conv2D(n, (3, 3)))
+    # 3) third layer same as first 2 but double the features/kernels?
+    model.add(Conv2D(n * 2, (3, 3)))  # model.layers[6].get_weights()[:].shape: [(3, 3, 32, 64), (32,)]
     model.add(Activation('relu'))
     model.add(MaxPooling2D(pool_size=(2, 2)))
 
-    model.add(Conv2D(n * 2, (3, 3)))
-    model.add(Activation('relu'))
-    model.add(MaxPooling2D(pool_size=(2, 2)))
-
+    # 4) turn it into a vector?
     model.add(Flatten())
+
+    # 5) fully connected layer
     model.add(Dense(n * 2))
     model.add(Activation('relu'))
+
+    # 6) 50% dropout
     model.add(Dropout(0.5))
     model.add(Dense(1))
     model.add(Activation('sigmoid'))
@@ -84,6 +94,10 @@ def build_model(n=32):
     model.compile(loss='binary_crossentropy',
                   optimizer='rmsprop',
                   metrics=['accuracy'])
+
+    if isinstance(path, str) and len(path):
+        model.load_weights(path)
+
     return model
 
 
@@ -136,3 +150,16 @@ if __name__ == '__main__':
     model = build_model(32)
     model = train_model(model)
     model.save_weights('cats-vs-dogs-keras-weights.h5')
+
+
+def get_weights(model, layer='all'):
+    layers = [layr.get_weights()[0][:, :, 0, :] for layr in model.layers if len(layer.get_weights())]
+    return layers[i] if isinstance(i, int) and 0 <= i < len(layers) else layers
+
+
+def plot_weights(model, layer=0):
+    w = get_weights(model, layer=layer)
+    for i in range(1, w.shape[-1]):
+        plt.subplot(5, 5, i)
+        plt.imshow(w[:, :, i], interpolation="nearest", cmap="gray")
+    plt.show()
