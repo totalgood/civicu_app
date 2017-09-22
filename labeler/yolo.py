@@ -479,8 +479,8 @@ if __name__ == '__main__':
     layer.set_weights([new_kernel, new_bias])
     early_stop = EarlyStopping(monitor='loss', min_delta=0.001, patience=3, mode='min', verbose=1)
     checkpoint = ModelCheckpoint('weights.hdf5', monitor='loss', verbose=1, save_best_only=True, mode='min', period=1)
-    tb_counter = max([int(num) for num in os.listdir('../logs/yolo/')] or [0]) + 1
-    tensorboard = TensorBoard(log_dir='/data/vsa/' + str(tb_counter), histogram_freq=0, write_graph=True, write_images=False)
+    tb_counter = max([len(ls) for ls in os.listdir('/data/vsa/logs/')] or [0]) + 1
+    tensorboard = TensorBoard(log_dir='/data/vsa/logs/' + str(tb_counter), histogram_freq=0, write_graph=True, write_images=False)
 
     sgd = SGD(lr=0.00001, decay=0.0005, momentum=0.9)
 
