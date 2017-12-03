@@ -5,4 +5,4 @@ from .models import Image
 class FileUploadForm(forms.ModelForm):
     class Meta:
         model = Image
-        fields = ('caption', 'file',)
+        fields = ('label', 'description', 'caption', 'file')
