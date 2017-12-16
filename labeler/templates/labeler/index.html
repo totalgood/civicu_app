@@ -3,14 +3,15 @@
 {% block content %}
   <h3>Images</h3>
   <table>
-    <tr><th>Filename</th><th>Uploaded</th></tr>
+    <tr><th>Filename</th><th>Uploaded By</th></tr>
     {% for img in images %}
-        <tr>
+    <tr>
           <td><a href="{{ img.file.url }}">{{ img.file.name }}</a></td>
-          <td><small>{{ img.uploaded_date }}</small></td>
+          <td><small>{{ img.uploaded_by }}</small></td>
         </tr>
     {% endfor %}
   </table>
-  <h3><a href="{% url 'form_file_upload' %}">Upload an image...</a></h3>
+
+  <h3><a href="{% url 'form_file_upload' %}">Return to Upload Page</a></h3>
 
 {% endblock %}
