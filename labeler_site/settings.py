@@ -30,17 +30,14 @@ ALLOWED_HOSTS = ['localhost', '.ngrok.io', '.totalgood.org', '.totalgood.com', '
 
 INSTALLED_APPS = [
     'labeler.apps.LabelerAppConfig',
-
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
     'django_extensions',
     'rest_framework',
-
 ]
 
 MIDDLEWARE = [

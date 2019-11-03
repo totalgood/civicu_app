@@ -4,22 +4,20 @@
 - Image upload page
 - A way to label an image
 - Display the aggregate (sum) of the label "votes" for an image
-- List the individual votes for an Image 
+- List the individual votes for an Image
 """
 
 from django.shortcuts import render, redirect
-
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 
-# from django.template import RequestContext
-# from django.http import HttpResponseRedirect
-# from django.core.urlresolvers import reverse
+from django.template import RequestContext
+from django.http import HttpResponseRedirect
+from django.core.urlresolvers import reverse
 
 from .models import Image
 from .serializers import ImageSerializer
 from .forms import FileUploadForm
-
 from rest_framework import generics
 
 
@@ -34,7 +32,6 @@ def form_file_upload(request):
     return render(request, 'labeler/form_file_upload.html', {
         'form': form
     })
-
 
 def index(request):
     images = Image.objects.all()

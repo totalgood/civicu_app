@@ -13,6 +13,6 @@ urlpatterns = [
     url(r'^api/$', views.ListImages.as_view(), name='image_list'),
 ]
 
-
 if settings.DEBUG:
+    #add static?
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
